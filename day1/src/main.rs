@@ -27,13 +27,11 @@ fn main() {
     );
 }
 
-fn two_numbers(numbers: &Vec<u32>, target: u32) -> (u32, u32) {
+fn two_numbers(numbers: &[u32], target: u32) -> (u32, u32) {
     for (i, number) in numbers.iter().enumerate() {
         for (j, other_number) in numbers.iter().enumerate() {
-            if i != j {
-                if (number + other_number) == target {
-                    return (*number, *other_number);
-                }
+            if i != j && (number + other_number) == target {
+                return (*number, *other_number);
             }
         }
     }
@@ -41,14 +39,12 @@ fn two_numbers(numbers: &Vec<u32>, target: u32) -> (u32, u32) {
     (0, 0)
 }
 
-fn three_numbers(numbers: &Vec<u32>, target: u32) -> (u32, u32, u32) {
+fn three_numbers(numbers: &[u32], target: u32) -> (u32, u32, u32) {
     for (i, first_number) in numbers.iter().enumerate() {
         for (j, second_number) in numbers.iter().enumerate() {
             for (k, third_number) in numbers.iter().enumerate() {
-                if i != j && j != k {
-                    if (first_number + second_number + third_number) == target {
-                        return (*first_number, *second_number, *third_number);
-                    }
+                if i != j && j != k && (first_number + second_number + third_number) == target {
+                    return (*first_number, *second_number, *third_number);
                 }
             }
         }
